@@ -5,14 +5,22 @@ do {
     if ((courseCode >= 0) && (courseCode <= 9999)) { break;}
 } while (true)
 
+let found = false;
 for (let course of courseList) {
     str = course['code'].slice(5)
     if (courseCode == str) {
         console.log(`Yes I am taking the course: ${course.code} - ${course.name}`);
+        found = true;
         break;
+        found = false;
     }
-    else {
-        len = courseList.length();
-        courseList.push(courseList[len])
-    }
+}
+if (!found) {
+    courseList.push(
+        {
+            code: courseCode,
+            name: null
+        }
+    );
+    console.log(`I am not taking the course that was entered but I have entered it into the array: ${courseList[(courseList.length)-1].code} - ${courseList[(courseList.length)-1].name}`)
 }
