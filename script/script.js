@@ -8,10 +8,11 @@ do {
 for (let course of courseList) {
     str = course['code'].slice(5)
     if (courseCode == str) {
-        console.log("Yes I am taking the course: " + course['code'] + " - " + course['name']);
+        console.log(`Yes I am taking the course: ${course.code} - ${course.name}`);
         break;
     }
     else {
-        console.log("No")
+        len = courseList.length();
+        courseList.push(courseList[len])
     }
 }
